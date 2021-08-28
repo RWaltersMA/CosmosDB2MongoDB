@@ -10,12 +10,12 @@ This repository contains a docker compose file that will stand up a minimal Apac
 
 Git clone this repository then build the docker containers:
 
-`Docker-compose up -d --build`
+`docker-compose up -d --build`
 
 The docker compose script `docker-compose.yml` will stand up all the components you need including Apache Kafka, Kafka Connect, and install the CosmosDB and MongoDB connectors.
 
 Next, configure Kafka Connect by modifing the `cosmosdb-source.json` file.  Replace the placeholder values with your own.
-
+```
 {
   "name": "cosmosdb-source",
   "config": {
@@ -33,9 +33,9 @@ Next, configure Kafka Connect by modifing the `cosmosdb-source.json` file.  Repl
     "key.converter.schemas.enable": "false"
   }
 }
-
+```
 Next modify the `mongo-sink.json` file and replace the placeholder values with your own.
-
+```
 {"name": "mongo-sink",
     "config": {
       "connector.class":"com.mongodb.kafka.connect.MongoSinkConnector",
@@ -50,7 +50,7 @@ Next modify the `mongo-sink.json` file and replace the placeholder values with y
       "key.converter.schemas.enable": "false"
       
  }}
-
+```
 To configure our two connectors make a REST API call to the Kafka Connect service:
 
 `curl -X POST -H "Content-Type: application/json" -d @cosmosdb-source.json  http://localhost:8083/connectors`
