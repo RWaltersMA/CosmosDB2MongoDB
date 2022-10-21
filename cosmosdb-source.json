@@ -9,7 +9,7 @@
     "connect.cosmos.connection.endpoint": "<COSMOS_ENDPOINT>",
     "connect.cosmos.master.key": "<MASTERKEY>",
     "connect.cosmos.databasename": "<DATABASE>",
-    "connect.cosmos.containers.topicmap": "<CONTAINER>#<TOPIC>",
+    "connect.cosmos.containers.topicmap": "<TOPIC>#<CONTAINER>",
     "connect.cosmos.offset.useLatest": false,
     "value.converter.schemas.enable": "false",
     "key.converter.schemas.enable": "false"
